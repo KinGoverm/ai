@@ -1,5 +1,6 @@
 from scikits.crab import datasets
 
+
 movies = datasets.load_sample_movies()
 songs = datasets.load_sample_songs()
 print movies.data
@@ -15,7 +16,15 @@ from scikits.crab.similarities import UserSimilarity
 #Build the similarity
 similarity = UserSimilarity(model, pearson_correlation)
 
-from crab.recommenders.knn import UserBasedRecommender
+print similarity[1]
+
+from scikits.crab.metrics.pairwise import euclidean_distances
+similarity = UserSimilarity ( model , euclidean_distances)
+
+print similarity[5]
+
+
+from scikits.crab.recommenders.knn import UserBasedRecommender
 
 #Build the User based recommender
 recommender = UserBasedRecommender(model, similarity, with_preference=True)
