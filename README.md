@@ -4,4 +4,7 @@ ai
 artificial intelligence
 
 
-برای اجرای این برنامه باید لایبرری  crab از python در سیستم شما نصب باشد.
+for running this program you need crab library of python on your system.
+you can get crab from bellow link:
+
+https://github.com/python-recsys/crab
