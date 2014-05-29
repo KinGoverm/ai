@@ -129,32 +129,20 @@ closestID = 'None'
 root = Node ( allInstances )
 makeTree(root)
 
-inp = raw_input('Please enter your rating from 100 :\n')
-inp = int(inp)
-
+#inp = raw_input('Please enter your rating from 100 :\n')
+#inp = int(inp)
+inp = 33
 inst = [inp,inp,inp,inp,inp]
 
-target = root.search_tree(inst)
-
-for index,obj in enumerate(allInstances):
-	if obj == target:
-		print "Closest movie id to your rating is : ",index+1
-		if len(target) == 6:
-			target = target[:5]
-		print "and rating for this movie is : ",target
-		break
+print "s",search_tree(root,inst),"s"
 
 
-inp = raw_input('Do you want to see the entire tree? (y,n) \n')
-
-if inp =='y':
-	
-	print "Complete Tree :"
-	print "format: l => left node , r => right node"
-	print 
-	root.print_tree()
+print "Complete Tree :"
+print 
+root.print_tree()
 
 
 
 
+#print closestID , MinDistance 
 

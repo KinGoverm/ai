@@ -28,14 +28,14 @@ class Node:
 		if len(self.data) == 6:
 			splitIndex = self.data[5]
 			if instance[splitIndex] > self.data[splitIndex]:
-				if self.right and len(self.right.data) :
-					return self.right.search_tree(instance)
+				if self.right:
+					return search_tree(self.right,instance)
 				else:
 					return self.data
 
 			else:
-				if self.left and len(self.left.data):
-					return self.left.search_tree(instance)
+				if self.left:
+					return search_tree(self.left,instance)
 				else:
 					return self.data
 		else:
