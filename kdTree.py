@@ -40,6 +40,7 @@ def makeTree(node):
 	
 	# calculate The best axis
 	maxVariance=0			
+	bestAxisIndex = 0
 	for index,axis in enumerate(axises):
 		variance = calculateVariance(axis)
 		if variance > maxVariance:
@@ -68,17 +69,26 @@ def makeTree(node):
 				rightNode.append(instance)
 			else:
 				leftNode.append(instance)
-#	print rightNode
-#	print leftNode
+
 
 	# make tree
+	
+	splitPoint.append(bestAxisIndex)
 
 	node.data = splitPoint
+	
+	if len(rightNode) == 1:
+		rightNode = rightNode[0]
+	if len(leftNode) == 1:
+		leftNode = leftNode[0]
+
 	node.right = Node(rightNode)
 	node.left = Node(leftNode)
 
-	makeTree(root.right)
-	makeTree(root.left)
+	makeTree(node.right)
+	makeTree(node.left)
+
+
 
 	
 
