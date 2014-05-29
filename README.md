@@ -10,8 +10,13 @@ Recommender System
 2014 April
 
 
-For running this program you need crab library of python on your system.
+for running simple based instance learning ( nearest neighbour ) algorithm run:
+	python simpleInstanceBased.py
 
-you can get crab from bellow link:
+and for running Kd-Tree algorithm for training dataset run:
+	python kdTree.py
 
-https://github.com/python-recsys/crab
+
+complete documention
+
+http://boute.ir/recommendation-system/

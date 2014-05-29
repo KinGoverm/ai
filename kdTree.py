@@ -1,0 +1,150 @@
+from math import sqrt
+from tree import Node
+
+def calculateMedian(list):
+	list.sort()
+
+def calculateAvg(list):
+
+	s = 0
+
+	for object in list:
+		s += object
+
+	return s/len(list)
+
+		
+def calculateVariance(list):
+
+	avg=calculateAvg(list)
+	s = 0
+
+	for object in list:
+		s += ( object - avg)^2
+
+	return 	s/len(list)
+
+def makeTree(node):
+
+
+	axises = [] 
+	if len(node.data) == 1 or len(node.data) == 0:
+		return
+	for instance in node.data:
+		if type(instance) is int:
+			return
+		for i in range(len(instance)):
+			if len(axises) <= i :
+				axises.append([])
+			axises[i].append(instance[i])
+	
+	# calculate The best axis
+	maxVariance=0			
+	for index,axis in enumerate(axises):
+		variance = calculateVariance(axis)
+		if variance > maxVariance:
+			bestAxisIndex = index
+
+	bestAxis = axises[ bestAxisIndex ]
+	
+	# calculate split point on the best axis
+	sortedBestAxis = sorted( bestAxis )
+	median = sortedBestAxis[ len(sortedBestAxis)/2 ]
+	
+	splitPointIndex = bestAxis.index(median)
+	splitPoint = node.data [ splitPointIndex ]
+	
+#	print bestAxisIndex
+#	print bestAxis
+#	print splitPointIndex
+#	print splitPoint
+	
+	rightNode=[]
+	leftNode=[]
+
+	for instance in node.data:
+		if instance != splitPoint:
+			if instance[bestAxisIndex] > splitPoint[bestAxisIndex]:
+				rightNode.append(instance)
+			else:
+				leftNode.append(instance)
+#	print rightNode
+#	print leftNode
+
+	# make tree
+
+	node.data = splitPoint
+	node.right = Node(rightNode)
+	node.left = Node(leftNode)
+
+	makeTree(root.right)
+	makeTree(root.left)
+
+	
+
+
+f = open('dataset/dataset.txt')
+lines = f.readlines()
+f.close()
+
+
+array=[]
+allInstances=[]
+
+for line in lines:
+	words = line.split()
+	
+	insideList = []
+
+	insideList.append(int(words[1]))
+	insideList.append(int(words[2]))
+	insideList.append(int(words[3])*20)
+	insideList.append(int(words[4]))
+	insideList.append(int(words[5])*10)
+
+	dic={}
+	dic[words[0]] = insideList
+
+	allInstances.append(insideList)
+
+	array.append(dic)
+
+
+
+#print array
+
+#inp = raw_input('Please enter your rating from 100 :\n')
+#inp = int(inp)
+inp = 33
+
+
+MinDistance = 101
+closestID = 'None'
+
+
+# we have 5 dimensions
+# for every instance in list we should have a node in tree
+# first we insert all instances to the root and in every iteration we will break it down to the left and right child
+
+root = Node ( allInstances )
+makeTree(root)
+print "Complete Tree :"
+print 
+root.print_tree()
+
+
+for obj in array:	
+	s = 0
+
+	for i in obj.values()[0]:
+		s += (i - inp)*(i - inp)
+
+	dist = sqrt(s)
+	if dist < MinDistance:
+		MinDistance = dist
+		closestID = obj.keys()[0]
+
+
+
+print closestID , MinDistance 
+

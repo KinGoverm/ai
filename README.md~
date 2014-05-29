@@ -1,7 +1,17 @@
 ai
 ==
 
-artificial intelligence
+Mohamad Dolatshah
+
+Artificial Intelligence Project
+
+Recommender System
+
+2014 April
 
 
-برای اجرای این برنامه باید لایبرری  crab از python در سیستم شما نصب باشد.
+for running simple based instance learning ( nearest neighbour ) algorithm run:
+	python simpleInstanceBased.py
+
+and for running Kd-Tree algorithm for training dataset run:
+	python kdTree.py
