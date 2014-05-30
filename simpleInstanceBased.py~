@@ -51,6 +51,5 @@ for obj in array:
 
 
 print "closest movie id to your rating is : ",closestID 
-print "and distance from this instance is : ", MinDistance
-#print "and rating for this movie is : ", dic[str(closestID)] 
+print "and rating for this movie is : ", dic[str(closestID)] 
 
