@@ -142,7 +142,7 @@ for index,obj in enumerate(allInstances):
 		if len(target) == 6:
 			target = target[:5]
 		print "and rating for this movie is : ",target
-		print "according to documention this is not the best answer , improvments will be considered in next phase"
+		print "According to documention probably this is not the best answer , improvements will be considered in next phase"
 		break
 
 

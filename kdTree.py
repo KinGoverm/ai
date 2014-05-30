@@ -146,7 +146,7 @@ for index,obj in enumerate(allInstances):
 		break
 
 
-inp = raw_input('Do you want to see the entire tree? (y,n) \n')
+inp = raw_input('Do you want to see the entire tree? \n *trust me,you do not wanna see the entire tree!*  (y,n) \n')
 
 if inp =='y':
 	
