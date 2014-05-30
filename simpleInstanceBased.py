@@ -5,8 +5,7 @@ lines = f.readlines()
 f.close()
 
 
-array=[]
-
+dic={}
 
 for line in lines:
 	words = line.split()
@@ -18,15 +17,13 @@ for line in lines:
 	insideList.append(int(words[3])*20)
 	insideList.append(int(words[4]))
 	insideList.append(int(words[5])*10)
-	dic={}
+
 	
 	dic[words[0]] = insideList
 
-	array.append(dic)
 
 
 
-#print array
 
 
 inp = raw_input('Please enter your rating from 100 :\n')
@@ -34,23 +31,26 @@ inp = int(inp)
 
 
 
-MinDistance = 101
+MinDistance = 10000
 closestID = 'None'
 
-for obj in array:	
-	s = 0
 
-	for i in obj.values()[0]:
+for id in dic:	
+	s = 0
+	obj = dic[id]
+	
+	for i in obj:
 		s += abs ( (i - inp)*(i - inp) )
 
 	dist = sqrt(s)
+
 	if dist < MinDistance:
 		MinDistance = dist
-		closestID = obj.keys()[0]
-
+		closestID = id
+		rating = obj
+	
 
 
 print "closest movie id to your rating is : ",closestID 
-print "and distance from this instance is : ", MinDistance
-#print "and rating for this movie is : ", dic[str(closestID)] 
+print "and rating for this movie is : ", rating
 
