@@ -36,6 +36,7 @@ closestID = 'None'
 
 
 for id in dic:	
+
 	s = 0
 	obj = dic[id]
 	
@@ -48,6 +49,9 @@ for id in dic:
 		MinDistance = dist
 		closestID = id
 		rating = obj
+
+	
+
 	
 
 
