@@ -138,6 +138,7 @@ inst = [inp,inp,inp,inp,inp]
 
 target = root.search_tree(inst)
 
+print 
 
 for index,obj in enumerate(allInstances):
 	if obj == target:
@@ -148,15 +149,18 @@ for index,obj in enumerate(allInstances):
 		print "According to documention probably this is not the best answer , improvements will be considered in next phase"
 		break
 
+print 
+print "results after improvements"
+print 
 
 bestTarget = root.bestSearchTree(inst)
 
 for index,obj in enumerate(allInstances):
-	if obj == bestTarget:
+	if obj == bestTarget.data:
 		print "Closest movie id to your rating is : ",index+1
-		if len(bestTarget) == 6:
-			bestTarget = bestTarget[:5]
-		print "and rating for this movie is : ",bestTarget
+		if len(bestTarget.data) == 6:
+			bestTarget.data = bestTarget.data[:5]
+		print "and rating for this movie is : ",bestTarget.data
 		break
 
 
